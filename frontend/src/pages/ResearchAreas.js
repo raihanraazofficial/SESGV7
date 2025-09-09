@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ArrowUp, Zap, Network, Cpu, Shield } from 'lucide-react';
+import { ArrowRight, ArrowUp } from 'lucide-react';
 import HeroSection from '../components/HeroSection';
 import { useData } from '../contexts/DataContext';
 import LoadingSpinner from '../components/LoadingSpinner';
@@ -16,42 +16,11 @@ const ResearchAreas = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const impactAreas = [
-    {
-      title: "Grid Modernization",
-      description: "Upgrading infrastructure for 21st century energy needs",
-      icon: Network
-    },
-    {
-      title: "Clean Energy Transition", 
-      description: "Accelerating adoption of renewable energy sources",
-      icon: Zap
-    },
-    {
-      title: "AI-Driven Optimization",
-      description: "Intelligent systems for maximum efficiency",
-      icon: Cpu
-    },
-    {
-      title: "Energy Security",
-      description: "Protecting critical infrastructure from threats",
-      icon: Shield
-    }
-  ];
-
-  const disciplines = [
-    "Electrical Engineering",
-    "Computer Science", 
-    "Environmental Science",
-    "Policy & Economics"
-  ];
-
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
       <HeroSection
         title="Research Areas"
-        description="Explore our comprehensive research domains that are driving innovation in sustainable energy and smart grid technologies."
         backgroundImage="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwxfHxyZXNlYXJjaCUyMGxhYm9yYXRvcnl8ZW58MHx8fHwxNzU2NjU0MTQ5fDA&ixlib=rb-4.1.0&q=85"
         height="h-96"
         enableAnimations={false}
@@ -60,13 +29,6 @@ const ResearchAreas = () => {
       {/* Research Areas Grid */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-              Our multidisciplinary research spans across smart grid technologies, renewable energy systems, 
-              and AI-driven energy solutions to create a sustainable future.
-            </p>
-          </div>
-
           {loading.researchAreas ? (
             <LoadingSpinner text="Loading research areas..." />
           ) : (
@@ -159,58 +121,6 @@ const ResearchAreas = () => {
               ))}
             </div>
           )}
-        </div>
-      </section>
-
-      {/* Research Impact & Applications */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold font-heading text-gray-900 mb-4">
-              Research Impact & Applications
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our research drives innovation across multiple domains, creating real-world impact in sustainable energy systems.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {impactAreas.map((area, index) => (
-              <div key={index} className="glass rounded-xl p-6 text-center card-hover border border-gray-200 shadow-lg">
-                <div className="w-16 h-16 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <area.icon className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">{area.title}</h3>
-                <p className="text-gray-600">{area.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Interdisciplinary Approach */}
-      <section className="py-20 bg-gradient-to-r from-blue-50 via-green-50 to-purple-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold font-heading text-gray-900 mb-4">
-              Interdisciplinary Approach
-            </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-              Our research combines expertise from multiple disciplines to tackle complex energy challenges 
-              through innovative, holistic solutions.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {disciplines.map((discipline, index) => (
-              <div key={index} className="text-center transform hover:scale-105 transition-transform duration-300">
-                <div className="w-24 h-24 bg-gradient-to-br from-blue-500 via-green-500 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                  <span className="text-white font-bold text-xl">{discipline.split(' ')[0][0]}</span>
-                </div>
-                <h3 className="text-gray-900 font-semibold text-lg">{discipline}</h3>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 

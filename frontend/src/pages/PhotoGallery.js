@@ -44,7 +44,7 @@ const PhotoGallery = () => {
       title: "Wind Turbine Research"
     },
     {
-      url: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDF8MHwxfHNlYXJjaHwyfHxzdXN0YWluYWJsZSUyMGVuZXJneXxlbnwwfHx8fDE3NTY1MzUxNTJ8MA&ixlib=rb-4.1.0&q=85",
+      url: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDF8MHwxfHNlYXJjaHwyfHxzdXN0YWluYWJsZSUyMGVuZXJneXxlbnwwfHh8fDE3NTY1MzUxNTJ8MA&ixlib=rb-4.1.0&q=85",
       category: "Renewable Energy",
       title: "Wind Farm Installation"
     },
@@ -70,7 +70,6 @@ const PhotoGallery = () => {
       {/* Hero Section */}
       <HeroSection
         title="Photo Gallery"
-        description="Glimpses of our research activities, laboratory work, and sustainable energy installations showcasing our commitment to innovation."
         backgroundImage="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwxfHxyZXNlYXJjaCUyMGxhYm9yYXRvcnl8ZW58MHx8fHwxNzU2NjU0MTQ5fDA&ixlib=rb-4.1.0&q=85"
         height="h-96"
       />
