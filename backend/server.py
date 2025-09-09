@@ -147,6 +147,7 @@ def update_document(collection_name, doc_id, data):
             # Mock behavior - update in-memory storage
             for item in in_memory_db[collection_name]:
                 if item['id'] == doc_id:
+                    # Allow clearing fields by setting empty strings
                     item.update(data)
                     item['updated_at'] = datetime.utcnow().isoformat()
                     return item
@@ -166,7 +167,8 @@ def update_document(collection_name, doc_id, data):
         if not doc_ref.get().exists:
             raise HTTPException(status_code=404, detail="Document not found")
         
-        doc_ref.update(data)
+        # Use set with merge=True to allow setting fields to empty values
+        doc_ref.set(data, merge=True)
         
         # Return updated document
         updated_doc = doc_ref.get().to_dict()
