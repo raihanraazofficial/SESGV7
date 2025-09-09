@@ -633,15 +633,36 @@ export function DataProvider({ children }) {
 
   const cleanData = (data) => {
     const cleaned = {};
+    
+    // Fields that should allow empty strings (for intentional clearing)
+    const clearableFields = [
+      'name', 'description', 'team_leader', 'team_members', 'funded_by', 
+      'funding_amount', 'research_area', 'project_link', 'image',
+      'start_date', 'end_date', 'title', 'bio', 'email', 'content',
+      'excerpt', 'author', 'location', 'event_type', 'registration_link'
+    ];
+    
     Object.keys(data).forEach(key => {
-      if (data[key] !== undefined && data[key] !== null && data[key] !== '') {
-        // Handle arrays - only include if not empty
-        if (Array.isArray(data[key])) {
-          if (data[key].length > 0) {
+      if (data[key] !== undefined && data[key] !== null) {
+        // For clearable fields, allow empty strings (intentional clearing)
+        if (clearableFields.includes(key)) {
+          if (Array.isArray(data[key])) {
+            // For arrays, include even if empty
+            cleaned[key] = data[key];
+          } else {
+            // For strings and other types, include even if empty string
             cleaned[key] = data[key];
           }
-        } else {
-          cleaned[key] = data[key];
+        } 
+        // For non-clearable fields, exclude empty strings
+        else if (data[key] !== '') {
+          if (Array.isArray(data[key])) {
+            if (data[key].length > 0) {
+              cleaned[key] = data[key];
+            }
+          } else {
+            cleaned[key] = data[key];
+          }
         }
       }
     });
