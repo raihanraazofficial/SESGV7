@@ -1,0 +1,51 @@
+# Dependencies
+node_modules
+*/node_modules
+frontend/node_modules
+backend/__pycache__
+*/__pycache__
+
+# Development files
+.env.local
+.env.development
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build artifacts (except final build)
+frontend/build/static/js/*.map
+frontend/build/static/css/*.map
+
+# Test files
+test_*.py
+*_test.py
+*/test_*
+*_test.md
+test_result.md
+
+# Development and testing artifacts
+backend/server_*_failed.py
+backend/server_broken.py
+backend/server_old.py
+backend/test_*.py
+backend_test.py
+news_test.py
+test_news_frontend.py
+test_backend_simple.py
+
+# Documentation
+*.md
+!README.md
+DEPLOYMENT_GUIDE.md
+rich-text-editor-guide.md
+
+# IDE files
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
