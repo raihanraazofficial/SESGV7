@@ -1,22 +1,15 @@
-#!/usr/bin/env python3
-
 from fastapi import FastAPI
-import os
 
-# Create FastAPI app
-app = FastAPI(
-    title="SESG Research API",
-    version="1.0.0",
-    description="API for Sustainable Energy and Smart Grid Research website"
-)
-
-@app.get("/")
-async def root():
-    return {"message": "SESG Research API is running"}
+# Initialize FastAPI
+app = FastAPI(title="SESGRG API", version="1.0.0")
 
 @app.get("/api/health")
 async def health_check():
-    return {"status": "healthy", "message": "Backend is working properly"}
+    return {"status": "healthy", "message": "SESG Research API is working"}
+
+@app.get("/")
+async def root():
+    return {"message": "SESG Research API", "status": "online"}
 
 if __name__ == "__main__":
     import uvicorn
