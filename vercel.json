@@ -1,21 +1,7 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "frontend/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "build"
-      }
-    },
-    {
-      "src": "backend/server.py",
-      "use": "@vercel/python",
-      "config": {
-        "runtime": "python3.11"
-      }
-    }
-  ],
+  "buildCommand": "cd frontend && yarn install && yarn build",
+  "outputDirectory": "frontend/build",
   "routes": [
     {
       "src": "/api/(.*)",
@@ -39,7 +25,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/frontend/index.html"
+      "dest": "/frontend/build/index.html"
     }
   ],
   "env": {
@@ -47,6 +33,7 @@
   },
   "functions": {
     "backend/server.py": {
+      "runtime": "python3.11",
       "maxDuration": 30
     }
   }
